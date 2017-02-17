@@ -47,6 +47,7 @@ class SynchronizeTeamspeak extends Command
         $serverInstance = $this->teamspeak->getInstance();
         foreach ($serverInstance as $key => $virtualServer) {
             /* @var $virtualServer \TeamSpeak3_Node_Server */
+//            $virtualServer->channelGroupList()
 
             $server = Server::whereSid($virtualServer['virtualserver_id'])->first();
 

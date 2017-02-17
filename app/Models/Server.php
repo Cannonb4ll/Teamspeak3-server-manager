@@ -23,7 +23,7 @@ class Server extends Model
 
     public function getStatusAttribute()
     {
-        if(is_null($this->status)){
+        if (is_null($this->status)) {
             $this->status = $this->getStatus();
         }
         return $this->status;
@@ -35,6 +35,13 @@ class Server extends Model
         $result = $ts3->getStatus($this);
         $this->status = $result;
         return $result;
+    }
+
+    public function getChannels()
+    {
+        $channels = (new TeamspeakHelper())->getChannels($this);
+
+        return $channels;
     }
 
     public function tokens()

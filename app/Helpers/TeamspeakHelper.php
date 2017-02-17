@@ -114,4 +114,11 @@ class TeamspeakHelper
         $server = $this->server($server);
         return $server;
     }
+
+    public function getChannels($server)
+    {
+        $server = $this->server($server);
+
+        return $server->channelList();
+    }
 }
